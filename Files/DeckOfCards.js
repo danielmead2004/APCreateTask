@@ -2,7 +2,7 @@
  * Creates a deck of 52 cards
  * @author Pluska
  */
- class DeckOfCards{
+class DeckOfCards{
     
 
     constructor(){
@@ -28,3 +28,10 @@
 
 }
     
+
+
+
+   
+  
+    
+

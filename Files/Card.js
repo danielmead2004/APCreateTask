@@ -3,7 +3,7 @@
  * card deck
  * @author Pluska
  */
- class Card {
+class Card {
     
     /**
      * creates a random card by creating a
@@ -75,3 +75,4 @@
 
 Card.height = 71;
 Card.width = 53;
+
