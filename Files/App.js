@@ -27,4 +27,3 @@ var b10 = makecardholder(100, 146, dim*6, dim*3, 0);
 var b11 = makecardholder(100, 146, dim*8, dim*3, 0);
 var b12 = makecardholder(100, 146, dim*10, dim*3, 0);
 var b13 = makecardholder(100, 146, dim*12, dim*3, 0);
-
