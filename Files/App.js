@@ -1,4 +1,6 @@
-var dim= 100;
+var dim= 100; //Defines postion of card holders
+var gameTimer = setTimeout(gameOver, 1000*gameTime);; //Creates gametimer var
+var gameTime = 30; //Define length of game in seconds
 function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b = document.createElement("button");
 	b.style.border = "red solid thin";
@@ -9,7 +11,7 @@ function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b.style.left = xPos + "px";
 	b.style.top = yPos + "px";
 	b.id = id;
-	//future even listener
+	b.addEventListener("click", flip);
 	document.body.append(b); 
 }
 
@@ -27,3 +29,9 @@ var b10 = makecardholder(100, 146, dim*6, dim*3, 0);
 var b11 = makecardholder(100, 146, dim*8, dim*3, 0);
 var b12 = makecardholder(100, 146, dim*10, dim*3, 0);
 var b13 = makecardholder(100, 146, dim*12, dim*3, 0);
+
+function gameOver(){ //Game Over function get called after game time is up
+	 alert("Game Over You Lost");
+	}
+
+
