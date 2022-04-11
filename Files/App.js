@@ -3,7 +3,7 @@
 var dim= 100; //Defines postion of card holders
 function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b = document.createElement("button");
-	b.style.border = "red solid thin";
+	b.style.border = "black solid thin";
 	b.style.width = w +"px";
 	b.style.height = h +"px";
 	b.style.backgroundImage = "url('images/backofcard.jpg')";
@@ -11,7 +11,7 @@ function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b.style.left = xPos + "px";
 	b.style.top = yPos + "px";
 	b.id = id;
-	//b.addEventListener("click", flip);
+	b.addEventListener("click", flip);
 	document.body.append(b); 
 }
 
@@ -30,18 +30,12 @@ var b11 = makecardholder(100, 146, dim*8, dim*3, 11);
 var b12 = makecardholder(100, 146, dim*10, dim*3, 12);
 var b13 = makecardholder(100, 146, dim*12, dim*3, 13);
 
-//TIMER SECTION
-
-var gameTimer = setTimeout(gameOver, 1000*gameTime);; //Creates gametimer var
-var gameTime = 31; //Defines length of game in seconds
-var timeleft;
-
-function countdown(){
-	timeLeft = setInterval(updateTime, 1000);
+function flip(){
+	b.style.backgroundImage = "url('ace_of_spades2.png')"
 }
-countdown();
 
-function drawrectangle(w,h,x,y,id) { //creates div to hold timer function
+//TIMER SECTION
+function drawrectangle(w,h,x,y,id) { //creates div to hold timer function + some misc GUI 
 	var rectangle = document.createElement("div");
 	var width = w; 
 	var height = h; 
@@ -54,18 +48,44 @@ function drawrectangle(w,h,x,y,id) { //creates div to hold timer function
 	rectangle.style.border = "thick solid red"; 
 	rectangle.style.position = "absolute"; 
 	rectangle.style.fontSize = "75";
+	rectangle.style.color = "red";
+	rectangle.style.background = "black";
+	rectangle.style.alignContent = "centered";
 	rectangle.id = id;
 	document.body.append(rectangle); 
 	return rectangle
 }
+drawrectangle(76,75,1213,1,69); //Div that holds timer
 
-drawrectangle(76,75,1230,1,69); //Div that holds timer
+var gameTime = 30; //Defines length of game in seconds
+var timeleft;
+
+function countdown(){
+	timeLeft = setInterval(updateTime, 1000);
+}
 
 function updateTime(){
 	gameTime--;
 	document.getElementById(69).innerHTML = gameTime;
 }
 
-function gameOver(){ //Game Over function get called after game time is up
-	console.log("Game Over You Lost");
-   }
+countdown();
+
+function updateTime(){
+	gameTime--;
+	document.getElementById(69).innerHTML = gameTime;
+}
+
+//AlERT TIMER SECTION
+var alertTime = 30 //Time Intill Alert
+var gameTimer = setTimeout(alertOver, 1000*alertTime);
+
+function alertOver(){ //Game Over function get called after game time is up
+	alert("Game Over You Lost");
+}
+
+//drawrectangle(350,75,600,1,420); //future div
+
+//Misc GUI
+drawrectangle(425,75,1,1,666)
+document.getElementById(666).innerHTML = "Mix In Match";
