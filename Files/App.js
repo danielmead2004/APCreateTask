@@ -32,6 +32,7 @@ var b13 = makecardholder(100, 146, dim*12, dim*3, 13);
 
 function flip(){
 	b.style.backgroundImage = "url('ace_of_spades2.png')"
+	console.log("cliked");
 }
 
 //TIMER SECTION
@@ -77,7 +78,7 @@ function updateTime(){
 }
 
 //AlERT TIMER SECTION
-var alertTime = 30 //Time Intill Alert
+var alertTime = 31 //Time Intill Alert
 var gameTimer = setTimeout(alertOver, 1000*alertTime);
 
 function alertOver(){ //Game Over function get called after game time is up
