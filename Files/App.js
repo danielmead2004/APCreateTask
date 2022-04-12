@@ -31,8 +31,8 @@ var b12 = makecardholder(100, 146, dim*10, dim*3, 12);
 var b13 = makecardholder(100, 146, dim*12, dim*3, 13);
 
 function flip(){
-	b.style.backgroundImage = "url('ace_of_spades2.png')"
-	console.log("cliked");
+	event.target.style.backgroundImage = "url('images/ace_of_spades2.png')"
+	console.log("clicked");
 }
 
 //TIMER SECTION
@@ -74,7 +74,6 @@ function updateTime(){
 }
 
 countdown();
-
 
 //AlERT TIMER SECTION
 var alertTime = 31 //Time Intill Alert
