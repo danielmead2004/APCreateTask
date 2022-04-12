@@ -58,7 +58,7 @@ function drawrectangle(w,h,x,y,id) { //creates div to hold timer function + some
 }
 drawrectangle(76,75,1213,1,69); //Div that holds timer
 
-var gameTime = 3; //Defines length of game in seconds
+var gameTime = 30; //Defines length of game in seconds
 var timeleft;
 
 function countdown(){
