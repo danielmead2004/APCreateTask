@@ -1,5 +1,6 @@
 //CARD SECTION
 
+
 var dim= 100; //Defines postion of card holders
 function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b = document.createElement("button");
@@ -13,27 +14,53 @@ function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b.id = id;
 	b.addEventListener("click", flip);
 	document.body.append(b); 
+	return b;
 }
 
-var b0 = makecardholder(100, 146, dim*0, dim*1, 0); //calling function to create 2x4 grid 
+var cardArray = [];
+var idArray = [0, 0, 1, 1, 2, 2];
+var j = 1;
+for(var i = 0; i < 6; i++){
+	console.log(idArray.length);
+	var rand = Math.floor(Math.random()*idArray.length);
+	var num = idArray[rand];
+	var but = makecardholder(100, 146, dim*i*2, dim*j, num);
+	//console.log(num)
+	idArray.splice(rand, 1);
+	cardArray.push(but)
+}
+
+console.log(idArray);
+console.log(cardArray)
+/*
+var b0 = makecardholder(100, 146, dim*0, dim*1, 0); 
 var b1 = makecardholder(100, 146, dim*2, dim*1, 1);
-var b2 = makecardholder(100, 146, dim*4, dim*1, 2);
-var b3 = makecardholder(100, 146, dim*6, dim*1, 3);
-var b4 = makecardholder(100, 146, dim*8, dim*1, 4);
-var b5 = makecardholder(100, 146, dim*10, dim*1, 5);
-var b6 = makecardholder(100, 146, dim*12, dim*1, 6);
-var b7 = makecardholder(100, 146, dim*0, dim*3, 7);
-var b8 = makecardholder(100, 146, dim*2, dim*3, 8);
-var b9 = makecardholder(100, 146, dim*4, dim*3, 9);
-var b10 = makecardholder(100, 146, dim*6, dim*3, 10);
-var b11 = makecardholder(100, 146, dim*8, dim*3, 11);
-var b12 = makecardholder(100, 146, dim*10, dim*3, 12);
-var b13 = makecardholder(100, 146, dim*12, dim*3, 13);
+var b2 = makecardholder(100, 146, dim*4, dim*1, 2,);
+var b3 = makecardholder(100, 146, dim*6, dim*1, 3,);
+var b4 = makecardholder(100, 146, dim*8, dim*1, 4,);
+var b5 = makecardholder(100, 146, dim*10, dim*1, 5,);
+var b6 = makecardholder(100, 146, dim*0, dim*3, 7,);
+var b7 = makecardholder(100, 146, dim*2, dim*3, 8,);
+var b8 = makecardholder(100, 146, dim*4, dim*3, 9,);
+var b9 = makecardholder(100, 146, dim*6, dim*3, 10,);
+var b10 = makecardholder(100, 146, dim*8, dim*3, 11,);
+var b12 = makecardholder(100, 146, dim*10, dim*3, 12,);
+*/
+
 
 function flip(){
-	event.target.style.backgroundImage = "url('images/ace_of_spades2.png')"
+	if(event.target.id == 0){
+		console.log(1);
+		event.target.style.backgroundImage = "url('images/ace_of_spades2.png')"
+	} else if(event.target.id == 1){
+		event.target.style.backgroundImage = "url('images/4_of_spades.png')"
+	} else if(event.target.id == 2){
+		event.target.style.backgroundImage = "url('images/2_of_spades.png')"
+	}
+	
 	console.log("clicked");
 }
+
 
 //TIMER SECTION
 function drawrectangle(w,h,x,y,id) { //creates div to hold timer function + some misc GUI 
