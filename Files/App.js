@@ -32,21 +32,6 @@ for(var i = 0; i < 6; i++){
 
 console.log(idArray);
 console.log(cardArray)
-/*
-var b0 = makecardholder(100, 146, dim*0, dim*1, 0); 
-var b1 = makecardholder(100, 146, dim*2, dim*1, 1);
-var b2 = makecardholder(100, 146, dim*4, dim*1, 2,);
-var b3 = makecardholder(100, 146, dim*6, dim*1, 3,);
-var b4 = makecardholder(100, 146, dim*8, dim*1, 4,);
-var b5 = makecardholder(100, 146, dim*10, dim*1, 5,);
-var b6 = makecardholder(100, 146, dim*0, dim*3, 7,);
-var b7 = makecardholder(100, 146, dim*2, dim*3, 8,);
-var b8 = makecardholder(100, 146, dim*4, dim*3, 9,);
-var b9 = makecardholder(100, 146, dim*6, dim*3, 10,);
-var b10 = makecardholder(100, 146, dim*8, dim*3, 11,);
-var b12 = makecardholder(100, 146, dim*10, dim*3, 12,);
-*/
-
 
 function flip(){
 	if(event.target.id == 0){
