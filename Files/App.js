@@ -1,7 +1,6 @@
-//CARD SECTION
-
+//CARD SECTION                                                                                                                                                                        
 var dim= 100; //Defines postion of card holders
-function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
+function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs (Some aspects were pulled from Hide N Seek Lab)          
 	b = document.createElement("button");
 	b.style.border = "black solid thin";
 	b.style.width = w +"px";
@@ -16,7 +15,7 @@ function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	return b;
 }
 
-var cardArray = []; //Array which creates card Elements and asigns random IDs
+var cardArray = []; //Arrays which creates card Elements and asigns random IDs (Some collaboration with past Student in the creation specfically how to push into array)
 var idArray = [0, 0, 1, 1, 2, 2];
 var j = 1;
 for(var i = 0; i < 6; i++){
@@ -28,7 +27,7 @@ for(var i = 0; i < 6; i++){
 }
 console.log(cardArray) //logs array for cheating or deugging
 
-//CARD LOGIC SECTION
+//CARD LOGIC SECTION (Some Collaboration with Past student in creation of timeout and reset card funciton)
 var score = 0; //score of cards
 var click = 0; //keeps tracks of cards for matching
 var recentCard; //most recent card clicked
@@ -56,7 +55,7 @@ function flip(){ //flipping function + matching funciton
 		} 
 		else {
 			canClick = false;
-			var poopnut = setTimeout(resetCard, 1000, event.target);
+			var H = setTimeout(resetCard, 1000, event.target);
 		}
 	}
 }
@@ -67,7 +66,7 @@ function resetCard(card2){ //resets card of no match
 	canClick = true;
 }
 
-//DISPLAYED TIMER SECTION
+//DISPLAYED TIMER SECTION (Structured of element creation function pull from multiple past labs , timer sections (Alert and Display) follow structure simular to multiple past labs)
 function drawrectangle(w,h,x,y,id) { //creates div to hold timer function + some misc GUI 
 	var rectangle = document.createElement("div");
 	var width = w; 
@@ -122,9 +121,9 @@ function alertOver(){ //Game Over function get called after game time is up
 
 //SCORE SECTION
 drawrectangle(375,75,600,1,420); 
-var bruh;
+var G;
 function scoreDown(){ //updates score constantly
-	bruh = setInterval(updateScore, 1);
+	G = setInterval(updateScore, 1);
 }
 
 function updateScore(){ //function that gets ran when updating score
