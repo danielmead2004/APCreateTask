@@ -1,6 +1,5 @@
 //CARD SECTION
 
-
 var dim= 100; //Defines postion of card holders
 function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	b = document.createElement("button");
@@ -17,37 +16,58 @@ function makecardholder(w, h, xPos, yPos, id){      //Creates Card Holding Divs
 	return b;
 }
 
-var cardArray = [];
+var cardArray = []; //Array which creates card Elements and asigns random IDs
 var idArray = [0, 0, 1, 1, 2, 2];
 var j = 1;
 for(var i = 0; i < 6; i++){
-	console.log(idArray.length);
 	var rand = Math.floor(Math.random()*idArray.length);
 	var num = idArray[rand];
 	var but = makecardholder(100, 146, dim*i*2, dim*j, num);
-	//console.log(num)
 	idArray.splice(rand, 1);
 	cardArray.push(but)
 }
+console.log(cardArray) //logs array for cheating or deugging
 
-console.log(idArray);
-console.log(cardArray)
+//CARD LOGIC SECTION
+var score = 0; //score of cards
+var click = 0; //keeps tracks of cards for matching
+var recentCard; //most recent card clicked
+var canClick = true //prevents clicking when matching and after winnings
 
-function flip(){
+function flip(){ //flipping function + matching funciton
+	if (!canClick){
+		return
+	}
+	click++;
 	if(event.target.id == 0){
-		console.log(1);
 		event.target.style.backgroundImage = "url('images/ace_of_spades2.png')"
 	} else if(event.target.id == 1){
 		event.target.style.backgroundImage = "url('images/4_of_spades.png')"
 	} else if(event.target.id == 2){
 		event.target.style.backgroundImage = "url('images/2_of_spades.png')"
 	}
-	
-	console.log("clicked");
+	if(click%2 == 1){
+		recentCard = event.target
+	}
+	if(click%2 == 0){
+		if (event.target.id == recentCard.id){
+			score++;
+			console.log(score)
+		} 
+		else {
+			canClick = false;
+			var poopnut = setTimeout(resetCard, 1000, event.target);
+		}
+	}
 }
 
+function resetCard(card2){ //resets card of no match
+	recentCard.style.backgroundImage = "url('images/backofcard.jpg')";
+	card2.style.backgroundImage = "url('images/backofcard.jpg')";
+	canClick = true;
+}
 
-//TIMER SECTION
+//DISPLAYED TIMER SECTION
 function drawrectangle(w,h,x,y,id) { //creates div to hold timer function + some misc GUI 
 	var rectangle = document.createElement("div");
 	var width = w; 
@@ -78,7 +98,7 @@ function countdown(){
 }
 
 function updateTime(){
-	if(gameTime == 0){
+	if(gameTime == 0 || score == 3){
 		return;
 	}
 	gameTime--;
@@ -88,15 +108,35 @@ function updateTime(){
 countdown();
 
 //AlERT TIMER SECTION
-var alertTime = 31 //Time Intill Alert
+var alertTime = 10 //Time Intill Alert
 var gameTimer = setTimeout(alertOver, 1000*alertTime);
 
 function alertOver(){ //Game Over function get called after game time is up
-	alert("Game Over You Lost");
+	if(alertTime == 0){
+		alert("Game Over You Lost");
+	}
+	if(score ==3){
+		return;
+	}
 }
 
-//drawrectangle(350,75,600,1,420); //future div
+//SCORE SECTION
+drawrectangle(375,75,600,1,420); 
+var bruh;
+function scoreDown(){ //updates score constantly
+	bruh = setInterval(updateScore, 1);
+}
+
+function updateScore(){ //function that gets ran when updating score
+	document.getElementById(420).innerHTML = "Matched" + " " + score;
+	if(score == 3){
+		document.getElementById(420).innerHTML = "YOU WON";
+		canClick=false;
+	}
+}
+
+scoreDown();
 
 //Misc GUI
 drawrectangle(425,75,1,1,666)
-document.getElementById(666).innerHTML = "Mix In Match";
+document.getElementById(666).innerHTML = "Mix N Match"; //Just the title
