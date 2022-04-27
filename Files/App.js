@@ -113,6 +113,7 @@ var gameTimer = setTimeout(gameOver, 1000*alertTime);
 function gameOver(){ //Game Over function get called after game time is up
 		alert("Game Over You Lost");
 		clearInterval(timeLeft);
+		
 }
 
 //SCORE SECTION
@@ -127,6 +128,7 @@ function updateScore(){ //function that gets ran when updating score
 	if(score == 3){
 		document.getElementById(420).innerHTML = "YOU WON";
 		canClick=false;
+		clearTimeout(gameTimer);
 	}
 }
 
