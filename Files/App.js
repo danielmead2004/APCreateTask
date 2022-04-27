@@ -107,16 +107,12 @@ function updateTime(){
 countdown();
 
 //AlERT TIMER SECTION
-var alertTime = 10 //Time Intill Alert
-var gameTimer = setTimeout(alertOver, 1000*alertTime);
+var alertTime = 5 //Time Intill Alert
+var gameTimer = setTimeout(gameOver, 1000*alertTime);
 
-function alertOver(){ //Game Over function get called after game time is up
-	if(alertTime == 0){
+function gameOver(){ //Game Over function get called after game time is up
 		alert("Game Over You Lost");
-	}
-	if(score ==3){
-		return;
-	}
+		clearInterval(timeLeft);
 }
 
 //SCORE SECTION
