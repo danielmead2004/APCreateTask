@@ -107,7 +107,7 @@ function updateTime(){
 countdown();
 
 //AlERT TIMER SECTION
-var alertTime = 5 //Time Intill Alert
+var alertTime = 31 //Time Intill Alert
 var gameTimer = setTimeout(gameOver, 1000*alertTime);
 
 function gameOver(){ //Game Over function get called after game time is up
