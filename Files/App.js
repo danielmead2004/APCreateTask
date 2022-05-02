@@ -113,6 +113,7 @@ var gameTimer = setTimeout(gameOver, 1000*alertTime);
 function gameOver(){ //Game Over function get called after game time is up
 		alert("Game Over You Lost");
 		clearInterval(timeLeft);
+		canClick=false;
 		
 }
 
